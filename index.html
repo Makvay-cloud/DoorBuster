@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DoorBuster — магазин помощи с достижениями Roblox DOORS. Найди нужную ачивку и изучи условия.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050506">
+  <title>DoorBuster — магазин достижений DOORS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">D</span><span>DOOR<span class="red">BUSTER</span><small>DOORS ACHIEVEMENT SHOP</small></span></a>
+    <nav>
+      <a href="#shop">Магазин</a>
+      <a href="#how">Как заказать</a>
+      <a href="#about">О проекте</a>
+    </nav>
+    <a class="header-cta" href="#shop">НАЙТИ АЧИВКУ <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="status"><i></i> МАГАЗИН ДОСТИЖЕНИЙ DOORS</div>
+        <h1>ТВОЯ СЛЕДУЮЩАЯ<br><span>АЧИВКА</span> ЖДЁТ.</h1>
+        <p>Выбирай испытание, изучай условия и находи помощь для прохождения DOORS.</p>
+        <a class="main-button" href="#shop">ОТКРЫТЬ МАГАЗИН <b>↓</b></a>
+      </div>
+      <div class="hero-door" aria-hidden="true">
+        <div class="door-frame"><div class="door-panel"><span class="door-eye">?</span><span class="door-label">DOOR 000</span><i class="knob"></i></div></div>
+        <div class="floor-light"></div>
+      </div>
+      <div class="hero-caption"><span>НЕ ОГЛЯДЫВАЙСЯ.</span><span>EST. 2026&nbsp; / &nbsp;01</span></div>
+    </section>
+
+    <section id="shop" class="shop-section">
+      <div class="section-top">
+        <div><div class="eyebrow">АРХИВ ДОСТИЖЕНИЙ</div><h2>МАГАЗИН <span>АЧИВОК</span></h2></div>
+        <div class="catalog-count"><strong id="resultCount">06</strong><span>НАЙДЕНО</span></div>
+      </div>
+
+      <div class="shop-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск ачивки..." autocomplete="off"><kbd>/</kbd></label>
+        <div class="tabs" role="tablist" aria-label="Категории достижений">
+          <button class="tab active" data-filter="all" role="tab" aria-selected="true">Все</button>
+          <button class="tab" data-filter="hotel" role="tab" aria-selected="false">Отель</button>
+          <button class="tab" data-filter="mines" role="tab" aria-selected="false">Шахты</button>
+          <button class="tab" data-filter="other" role="tab" aria-selected="false">Другие</button>
+        </div>
+      </div>
+
+      <div class="achievement-grid" id="achievementGrid">
+        <article class="achievement-card" data-category="hotel" data-search="hotel hell отель ад">
+          <div class="card-image hotel-art"><span class="card-code">H-01</span><span class="art-title">HOTEL<br>HELL</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty hard">СЛОЖНО</span></div><h3>Hotel Hell</h3><p>Помощь с подготовкой к сложному прохождению отеля.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="Hotel Hell">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="mines" data-search="a-1000 тысяча rooms шахты">
+          <div class="card-image a1000-art"><span class="card-code">A-02</span><span class="art-title">A-1000</span><span class="art-bottom">THE BACKDOORS</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОСОБОЕ ИСПЫТАНИЕ</span><span class="difficulty extreme">ОЧЕНЬ СЛОЖНО</span></div><h3>A-1000</h3><p>Помощь с планированием долгого забега и прохождением.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="A-1000">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="mines" data-search="not five stars не пять звезд шахты">
+          <div class="card-image mines-art"><span class="card-code">M-03</span><span class="art-title">NOT FIVE<br>STARS</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty hard">СЛОЖНО</span></div><h3>Not Five Stars</h3><p>Разбор условий и помощь с подготовкой к испытанию.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="Not Five Stars">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="hotel" data-search="you can run побег hotel">
+          <div class="card-image run-art"><span class="card-code">H-04</span><span class="art-title">YOU CAN<br>RUN</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЕ</span></div><h3>You Can Run</h3><p>Советы и помощь с прохождением соответствующего этапа.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="You Can Run">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="other" data-search="welcome приветствие начало">
+          <div class="card-image welcome-art"><span class="card-code">S-05</span><span class="art-title">WELCOME</span><span class="art-bottom">FIRST STEP</span></div>
+          <div class="card-content"><div class="card-meta"><span>НАЧАЛО</span><span class="difficulty easy">ЛЕГКО</span></div><h3>Welcome</h3><p>Помощь новичкам и знакомство с основными механиками.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="Welcome">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="other" data-search="badge достижение помощь другое">
+          <div class="card-image mystery-art"><span class="card-code">X-06</span><span class="art-title">???</span><span class="art-bottom">CLASSIFIED</span></div>
+          <div class="card-content"><div class="card-meta"><span>ДРУГОЕ</span><span class="difficulty unknown">УТОЧНЯЕТСЯ</span></div><h3>Другое достижение</h3><p>Не нашёл нужную ачивку? Уточни возможность помощи.</p><div class="card-buy"><span class="price">Цена уточняется</span><button class="details-button" data-name="Другое достижение">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+      </div>
+      <div id="emptyState" class="empty-state" hidden>НИЧЕГО НЕ НАЙДЕНО. ПОПРОБУЙ ДРУГОЙ ЗАПРОС.</div>
+      <p class="catalog-note">Каталог пока демонстрационный: наличие услуг, цены и ссылки на Game Pass нужно подтвердить перед запуском.</p>
+    </section>
+
+    <section id="how" class="how-section">
+      <div class="eyebrow">ПОРЯДОК РАБОТЫ</div><h2>КАК ЭТО <span>РАБОТАЕТ</span></h2>
+      <div class="steps">
+        <div><b>01</b><h3>Найди ачивку</h3><p>Используй категории или поиск по названию.</p></div>
+        <div><b>02</b><h3>Уточни заказ</h3><p>Сначала согласуй условия, цену и время помощи.</p></div>
+        <div><b>03</b><h3>Пройди вместе</h3><p>Не передавай пароль, коды подтверждения или доступ к аккаунту.</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section"><div class="eyebrow">О ПРОЕКТЕ</div><h2>НЕОФИЦИАЛЬНЫЙ <span>ФАН-МАГАЗИН</span></h2><p>DoorBuster — независимый фан-проект. Не связан с Roblox или создателями DOORS. Все названия достижений принадлежат их правообладателям.</p></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-icon">D</span> DOORBUSTER</a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
+
+  <dialog id="detailsDialog" class="details-dialog">
+    <button class="close-dialog" aria-label="Закрыть">×</button>
+    <div class="eyebrow">ИНФОРМАЦИЯ ОБ УСЛУГЕ</div>
+    <h2 id="dialogTitle">Название ачивки</h2>
+    <p>Это демонстрационная карточка. Перед заказом нужно подтвердить возможность помощи, условия и цену.</p>
+    <p class="safe-note">Не отправляй никому пароль, коды подтверждения и доступ к своему Roblox-аккаунту.</p>
+    <button class="main-button dialog-ok">ПОНЯТНО</button>
+  </dialog>
+  <script src="script.js"></script>
+</body></html>
