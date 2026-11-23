@@ -48,3 +48,25 @@ document.addEventListener("keydown", event => {
   }
 });
 filterCards();
+
+
+// Fetch official badge icons from Roblox using their badge IDs.
+(async function loadOfficialBadgeIcons() {
+  const nodes = [...document.querySelectorAll('.badge-image[data-badge-id]')];
+  await Promise.all(nodes.map(async node => {
+    const id = node.dataset.badgeId;
+    try {
+      const response = await fetch(`https://thumbnails.roblox.com/v1/badges/icons?badgeIds=${encodeURIComponent(id)}&size=150x150&format=Png&isCircular=false`);
+      if (!response.ok) throw new Error('Thumbnail request failed');
+      const result = await response.json();
+      const imageUrl = result?.data?.[0]?.imageUrl;
+      if (!imageUrl) throw new Error('No image returned');
+      const image = document.createElement('img');
+      image.src = imageUrl; image.alt = 'Оригинальный значок DOORS'; image.loading = 'lazy';
+      node.replaceChildren(image);
+    } catch (error) {
+      node.innerHTML = '<span class="badge-loading">Значок временно недоступен</span>';
+      console.warn('Roblox badge icon unavailable:', id, error);
+    }
+  }));
+})();
