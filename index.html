@@ -12,13 +12,15 @@
 <body>
   <div class="grain"></div>
   <header class="topbar">
-    <a class="brand" href="#"><span class="brand-icon">D</span><span>DOOR<span class="red">BUSTER</span><small>DOORS ACHIEVEMENT SHOP</small></span></a>
+    <a class="brand" href="#" aria-label="DoorBuster — главная">
+      <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 7h16c9 0 14 6 14 17S30 41 21 41H5V7Zm9 8v18h7c4 0 6-3 6-9s-2-9-6-9h-7Z" fill="currentColor"/><path d="M27 7h16v8H35v5h7v8h-7v5h8v8H27V7Z" fill="#e33b46"/><path d="M25 7v34" stroke="#080808" stroke-width="2"/></svg></span>
+      <span>DOOR<span class="red">BUSTER</span><small>DOORS FAN PROJECT</small></span></a>
     <nav>
-      <a href="#shop">Магазин</a>
-      <a href="#how">Как заказать</a>
+      <a href="#shop" data-main-nav="achievements">Ачивки</a>
+      <a href="#trades" data-main-nav="trades">Трейды</a>
       <a href="#about">О проекте</a>
     </nav>
-    <a class="header-cta" href="#shop">НАЙТИ АЧИВКУ <span>↗</span></a>
+    <a class="header-cta" href="#shop">КАТАЛОГ <span>↗</span></a>
   </header>
 
   <main>
@@ -27,7 +29,8 @@
         <div class="status"><i></i> МАГАЗИН ДОСТИЖЕНИЙ DOORS</div>
         <h1>ТВОЯ СЛЕДУЮЩАЯ<br><span>АЧИВКА</span> ЖДЁТ.</h1>
         <p>Выбирай испытание, изучай условия и находи помощь для прохождения DOORS.</p>
-        <a class="main-button" href="#shop">ОТКРЫТЬ МАГАЗИН <b>↓</b></a>
+        <a class="main-button" href="#shop">ОТКРЫТЬ КАТАЛОГ <b>↓</b></a>
+        <a class="hero-secondary" href="#trades">СМОТРЕТЬ ТРЕЙДЫ <span>↗</span></a>
       </div>
       <div class="hero-door" aria-hidden="true">
         <div class="door-frame"><div class="door-panel"><span class="door-eye">?</span><span class="door-label">DOOR 000</span><i class="knob"></i></div></div>
@@ -37,6 +40,10 @@
     </section>
 
     <section id="shop" class="shop-section">
+      <div class="main-tabs" role="tablist" aria-label="Разделы DoorBuster">
+        <button class="main-tab active" id="achievementsTab" role="tab" aria-selected="true" data-view="achievements"><span>✦</span> АЧИВКИ</button>
+        <button class="main-tab" id="tradesTab" role="tab" aria-selected="false" data-view="trades"><span>⇄</span> ТРЕЙДЫ</button>
+      </div>
       <div class="section-top">
         <div><div class="eyebrow">АРХИВ ДОСТИЖЕНИЙ</div><h2>МАГАЗИН <span>АЧИВОК</span></h2></div>
         <div class="catalog-count"><strong id="resultCount">29</strong><span>НАЙДЕНО</span></div>
@@ -183,7 +190,36 @@
       <p class="catalog-note">Каталог достижений. Условия, сложность, цены и доступность помощи уточняются перед заказом.</p>
     </section>
 
-    <section id="how" class="how-section">
+
+
+    <section id="trades" class="trades-section" hidden>
+      <div class="section-top">
+        <div><div class="eyebrow">ОБМЕНЫ СООБЩЕСТВА</div><h2>ДОСКА <span>ТРЕЙДОВ</span></h2></div>
+        <div class="catalog-count"><strong id="tradeCount">00</strong><span>ПРЕДЛОЖЕНИЙ</span></div>
+      </div>
+      <p class="trade-intro">Публикуй предмет, который предлагаешь, и укажи, что хочешь получить. Договоритесь о встрече и передайте предметы непосредственно в DOORS.</p>
+      <div class="trade-layout">
+        <form class="trade-form" id="tradeForm">
+          <div class="eyebrow">НОВОЕ ПРЕДЛОЖЕНИЕ</div>
+          <label>Твой Roblox-ник<input id="tradeUser" maxlength="24" required placeholder="Например, Player123"></label>
+          <label>Какой предмет предлагаешь?<input id="tradeGive" maxlength="60" required placeholder="Название предмета"></label>
+          <label>Что хочешь получить?<input id="tradeWant" maxlength="60" required placeholder="Название предмета"></label>
+          <label>Кому адресовано?
+            <select id="tradeTarget"><option value="all">Всем игрокам</option><option value="seller">Продавцу DoorBuster</option></select>
+          </label>
+          <button class="main-button" type="submit">ОПУБЛИКОВАТЬ <b>＋</b></button>
+          <p class="form-hint">Демо-режим: предложения пока сохраняются только в этом браузере.</p>
+        </form>
+        <div class="trade-board">
+          <div class="trade-board-head"><div><div class="eyebrow">АКТИВНЫЕ ПРЕДЛОЖЕНИЯ</div><h3>НАЙДИ СВОЙ ОБМЕН</h3></div>
+          <label class="trade-search"><span>⌕</span><input id="tradeSearch" placeholder="Поиск трейда..."></label></div>
+          <div id="tradeList" class="trade-list"></div>
+          <div id="tradeEmpty" class="empty-state">ПОКА НЕТ ПРЕДЛОЖЕНИЙ. СОЗДАЙ ПЕРВОЕ!</div>
+        </div>
+      </div>
+      <div class="trade-warning"><b>ВАЖНО</b><span>DoorBuster только помогает находить партнёров. Обмен предметами проходит внутри DOORS. Не передавай пароль, коды подтверждения или доступ к аккаунту. Проверяй предмет и условия до обмена.</span></div>
+    </section>
+\n    <section id="how" class="how-section">
       <div class="eyebrow">ПОРЯДОК РАБОТЫ</div><h2>КАК ЭТО <span>РАБОТАЕТ</span></h2>
       <div class="steps">
         <div><b>01</b><h3>Найди ачивку</h3><p>Используй категории или поиск по названию.</p></div>
@@ -195,13 +231,13 @@
     <section id="about" class="about-section"><div class="eyebrow">О ПРОЕКТЕ</div><h2>НЕОФИЦИАЛЬНЫЙ <span>ФАН-МАГАЗИН</span></h2><p>DoorBuster — независимый фан-проект. Не связан с Roblox или создателями DOORS. Все названия достижений принадлежат их правообладателям.</p></section>
   </main>
 
-  <footer><a class="brand" href="#"><span class="brand-icon">D</span> DOORBUSTER</a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
+  <footer><a class="brand" href="#"><span class="brand-icon">DB</span> DOORBUSTER</a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
 
   <dialog id="detailsDialog" class="details-dialog">
     <button class="close-dialog" aria-label="Закрыть">×</button>
     <div class="eyebrow">ИНФОРМАЦИЯ ОБ УСЛУГЕ</div>
     <h2 id="dialogTitle">Название ачивки</h2>
-    <p>Это демонстрационная карточка. Перед заказом нужно подтвердить возможность помощи, условия и цену.</p>
+    <p>Перед любым заказом уточни возможность помощи, условия и цену.</p>
     <p class="safe-note">Не отправляй никому пароль, коды подтверждения и доступ к своему Roblox-аккаунту.</p>
     <button class="main-button dialog-ok">ПОНЯТНО</button>
   </dialog>
