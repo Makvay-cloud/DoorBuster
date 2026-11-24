@@ -54,3 +54,32 @@
 [hidden]{display:none!important}
 @media(max-width:850px){.trade-layout{grid-template-columns:1fr}.trade-board-head{align-items:start;flex-direction:column}.trade-search{width:100%}}
 @media(max-width:600px){.trades-section{padding:55px 6%}.main-tabs{gap:7px}.main-tab{flex:1;padding:13px 10px}.hero-secondary{margin-left:0;display:flex;width:max-content}.trade-form,.trade-board{padding:17px}.trade-card{grid-template-columns:1fr}.trade-contact{width:100%}}
+
+
+/* Trades 7.0: visual item selection and trade discussion */
+.trade-form select{cursor:pointer}
+.trade-exchange{display:flex;align-items:center;gap:14px;margin-top:13px;flex-wrap:wrap}
+.trade-item-block{display:grid;grid-template-columns:58px minmax(70px,1fr);align-items:center;column-gap:10px;row-gap:4px;min-width:0}
+.trade-item-block>span:not(.trade-item-visual){grid-column:2;color:#8e858d;font-size:8px;letter-spacing:1px}
+.trade-item-block>strong{grid-column:2;font-size:11px;color:#f3edef;overflow-wrap:anywhere}
+.trade-item-visual{grid-row:1 / span 2;width:58px;height:58px;display:grid;place-items:center;overflow:hidden;background:#1c1115;border:1px solid #45252d}
+.trade-item-visual .card-image{width:100%;height:100%;min-height:0}
+.trade-item-visual .card-code,.trade-item-visual .art-bottom{font-size:5px;left:4px}
+.trade-item-visual .art-title{font-size:13px;letter-spacing:1px}
+.trade-item-visual .badge-image img{padding:3px}
+.trade-arrow{color:#df4651;font-size:24px}
+.trade-actions{display:grid;gap:8px;min-width:112px}
+.trade-reject{background:transparent;border:1px solid #633039;color:#d77a82;padding:10px 12px;font:800 9px Manrope;letter-spacing:.6px;cursor:pointer}
+.trade-reject:hover{background:#32151a;border-color:#b52b36;color:#fff}
+.trade-chat-dialog{max-height:85vh;overflow:auto}
+.trade-chat-messages{height:230px;overflow:auto;display:flex;flex-direction:column;gap:9px;padding:12px;background:#09090b;border:1px solid #30262b;margin:16px 0}
+.trade-chat-message{max-width:85%;padding:10px 12px;background:#1a1418;border:1px solid #3a252c}
+.trade-chat-message b{font-size:10px;color:#ed6872}
+.trade-chat-message p{font-size:12px;line-height:1.5;color:#eee;margin:5px 0 0;overflow-wrap:anywhere}
+.trade-chat-empty{margin:auto;color:#817982;font-size:11px;text-align:center}
+.trade-chat-form{display:grid;gap:9px}
+.trade-chat-form input{width:100%;height:42px;background:#080809;border:1px solid #383037;color:#f4eeee;padding:0 12px;font:12px Manrope;outline:none}
+.trade-chat-compose{display:flex;gap:8px}
+.trade-chat-compose .trade-contact{white-space:nowrap}
+.trade-chat-dialog>.trade-reject{margin-top:12px;width:100%}
+@media(max-width:600px){.trade-exchange{gap:8px}.trade-item-block{grid-template-columns:48px minmax(65px,1fr)}.trade-item-visual{width:48px;height:48px}.trade-actions{grid-template-columns:1fr 1fr}.trade-chat-compose{flex-direction:column}}

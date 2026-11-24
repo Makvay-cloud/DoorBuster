@@ -99,40 +99,104 @@ document.querySelectorAll('[data-main-nav="trades"]').forEach(link => link.addEv
 document.querySelectorAll('[data-main-nav="achievements"]').forEach(link => link.addEventListener('click', () => switchMainView('achievements')));
 if (location.hash === '#trades') switchMainView('trades');
 
-// Trade board demo: offers are stored in this browser only.
-// A secure backend is required before users on different devices can see/contact one another.
+// DoorBuster Trades: item picker, trade cards, per-trade chat and reject action.
+// This front-end demo stores data in this browser only; cross-device trading needs a backend.
 const tradeForm = document.getElementById('tradeForm');
 const tradeList = document.getElementById('tradeList');
 const tradeEmpty = document.getElementById('tradeEmpty');
 const tradeCount = document.getElementById('tradeCount');
 const tradeSearch = document.getElementById('tradeSearch');
-const tradeStorageKey = 'doorbuster_trade_offers_v1';
-let tradeOffers = [];
-try { tradeOffers = JSON.parse(localStorage.getItem(tradeStorageKey) || '[]'); } catch { tradeOffers = []; }
+const tradeGive = document.getElementById('tradeGive');
+const tradeWant = document.getElementById('tradeWant');
+const tradeStorageKey = 'doorbuster_trade_offers_v2';
+const rejectedStorageKey = 'doorbuster_rejected_trades_v1';
+const chatStorageKey = 'doorbuster_trade_chats_v1';
+const itemCatalog = [...document.querySelectorAll('.achievement-card')].map((card, index) => ({
+  id: card.dataset.search || `item-${index}`,
+  name: card.querySelector('h3')?.textContent.trim() || `Предмет ${index + 1}`,
+  imageHtml: card.querySelector('.card-image')?.innerHTML || ''
+}));
+const itemByName = new Map(itemCatalog.map(item => [item.name, item]));
+function fillItemSelect(select) {
+  itemCatalog.forEach(item => {
+    const option = document.createElement('option');
+    option.value = item.name;
+    option.textContent = item.name;
+    select.append(option);
+  });
+}
+fillItemSelect(tradeGive);
+fillItemSelect(tradeWant);
+
+function readStorage(key, fallback) {
+  try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); }
+  catch { return fallback; }
+}
+let tradeOffers = readStorage(tradeStorageKey, []);
+let rejectedTrades = readStorage(rejectedStorageKey, []);
+let tradeChats = readStorage(chatStorageKey, {});
+let activeTradeId = null;
+
+function saveTrades() {
+  try { localStorage.setItem(tradeStorageKey, JSON.stringify(tradeOffers)); } catch {}
+}
+function itemVisual(name) {
+  const item = itemByName.get(name);
+  const visual = document.createElement('div');
+  visual.className = 'trade-item-visual';
+  if (item?.imageHtml) visual.innerHTML = item.imageHtml;
+  else visual.textContent = 'DB';
+  return visual;
+}
 function renderTrades() {
   const query = (tradeSearch?.value || '').trim().toLocaleLowerCase('ru');
-  const visibleOffers = tradeOffers.filter(item => `${item.user} ${item.give} ${item.want} ${item.target}`.toLocaleLowerCase('ru').includes(query));
+  const visibleOffers = tradeOffers.filter(item =>
+    !rejectedTrades.includes(item.id) &&
+    `${item.user} ${item.give} ${item.want}`.toLocaleLowerCase('ru').includes(query)
+  );
   tradeList.replaceChildren();
   visibleOffers.forEach(item => {
     const card = document.createElement('article');
     card.className = 'trade-card';
     const info = document.createElement('div');
-    const user = document.createElement('div'); user.className = 'trade-user'; user.textContent = `ROBLOX: ${item.user}`;
-    const title = document.createElement('h4'); title.textContent = item.give;
-    const give = document.createElement('p'); give.innerHTML = '<strong>Предлагает:</strong> ';
-    give.append(document.createTextNode(item.give));
-    const want = document.createElement('p'); want.innerHTML = '<strong>Хочет:</strong> ';
-    want.append(document.createTextNode(item.want));
-    const target = document.createElement('span'); target.className = 'trade-target'; target.textContent = item.target === 'seller' ? 'ДЛЯ DOORBUSTER' : 'ДЛЯ ВСЕХ';
-    info.append(user, title, give, want, target);
-    const contact = document.createElement('button'); contact.className = 'trade-contact'; contact.textContent = 'ОБСУДИТЬ';
-    contact.addEventListener('click', () => {
-      dialogTitle.textContent = `Трейд с ${item.user}`;
-      dialog.querySelector('.eyebrow').textContent = 'ОБСУЖДЕНИЕ ОБМЕНА';
-      dialog.querySelector('p').textContent = 'Связь между разными посетителями пока не подключена. Сейчас это демонстрация интерфейса; для настоящих личных чатов понадобится защищённый сервер и авторизация.';
-      dialog.showModal();
-    });
-    card.append(info, contact);
+    const user = document.createElement('div');
+    user.className = 'trade-user';
+    user.textContent = `ROBLOX: ${item.user}`;
+    const exchange = document.createElement('div');
+    exchange.className = 'trade-exchange';
+    const giveBlock = document.createElement('div');
+    giveBlock.className = 'trade-item-block';
+    giveBlock.append(itemVisual(item.give));
+    const giveLabel = document.createElement('span');
+    giveLabel.innerHTML = '<b>ПРЕДЛАГАЕТ</b>';
+    const giveName = document.createElement('strong');
+    giveName.textContent = item.give;
+    giveBlock.append(giveLabel, giveName);
+    const arrow = document.createElement('span');
+    arrow.className = 'trade-arrow';
+    arrow.textContent = '⇄';
+    const wantBlock = document.createElement('div');
+    wantBlock.className = 'trade-item-block';
+    wantBlock.append(itemVisual(item.want));
+    const wantLabel = document.createElement('span');
+    wantLabel.innerHTML = '<b>ХОЧЕТ</b>';
+    const wantName = document.createElement('strong');
+    wantName.textContent = item.want;
+    wantBlock.append(wantLabel, wantName);
+    exchange.append(giveBlock, arrow, wantBlock);
+    info.append(user, exchange);
+    const actions = document.createElement('div');
+    actions.className = 'trade-actions';
+    const discuss = document.createElement('button');
+    discuss.className = 'trade-contact';
+    discuss.textContent = 'ОБСУДИТЬ';
+    discuss.addEventListener('click', () => openTradeChat(item));
+    const reject = document.createElement('button');
+    reject.className = 'trade-reject';
+    reject.textContent = 'ОТКЛОНИТЬ';
+    reject.addEventListener('click', () => rejectTrade(item.id));
+    actions.append(discuss, reject);
+    card.append(info, actions);
     tradeList.append(card);
   });
   tradeCount.textContent = String(visibleOffers.length).padStart(2, '0');
@@ -141,17 +205,74 @@ function renderTrades() {
 tradeForm.addEventListener('submit', event => {
   event.preventDefault();
   const offer = {
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     user: document.getElementById('tradeUser').value.trim(),
-    give: document.getElementById('tradeGive').value.trim(),
-    want: document.getElementById('tradeWant').value.trim(),
-    target: document.getElementById('tradeTarget').value,
+    give: tradeGive.value,
+    want: tradeWant.value,
     createdAt: Date.now()
   };
   if (!offer.user || !offer.give || !offer.want) return;
   tradeOffers.unshift(offer);
-  try { localStorage.setItem(tradeStorageKey, JSON.stringify(tradeOffers)); } catch {}
+  saveTrades();
   tradeForm.reset();
   renderTrades();
 });
 tradeSearch.addEventListener('input', renderTrades);
+
+const tradeChatDialog = document.getElementById('tradeChatDialog');
+const tradeChatTitle = document.getElementById('tradeChatTitle');
+const tradeChatMessages = document.getElementById('tradeChatMessages');
+const tradeChatForm = document.getElementById('tradeChatForm');
+function renderChat() {
+  tradeChatMessages.replaceChildren();
+  const messages = tradeChats[activeTradeId] || [];
+  if (!messages.length) {
+    const emptyMessage = document.createElement('p');
+    emptyMessage.className = 'trade-chat-empty';
+    emptyMessage.textContent = 'Пока нет сообщений. Начни обсуждение!';
+    tradeChatMessages.append(emptyMessage);
+  }
+  messages.forEach(message => {
+    const bubble = document.createElement('div');
+    bubble.className = 'trade-chat-message';
+    const author = document.createElement('b');
+    author.textContent = message.name;
+    const body = document.createElement('p');
+    body.textContent = message.text;
+    bubble.append(author, body);
+    tradeChatMessages.append(bubble);
+  });
+  tradeChatMessages.scrollTop = tradeChatMessages.scrollHeight;
+}
+function openTradeChat(item) {
+  activeTradeId = item.id;
+  tradeChatTitle.textContent = `Трейд с ${item.user}`;
+  renderChat();
+  tradeChatDialog.showModal();
+}
+tradeChatForm.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!activeTradeId) return;
+  const name = document.getElementById('tradeChatName').value.trim();
+  const text = document.getElementById('tradeChatInput').value.trim();
+  if (!name || !text) return;
+  if (!tradeChats[activeTradeId]) tradeChats[activeTradeId] = [];
+  tradeChats[activeTradeId].push({ name, text, createdAt: Date.now() });
+  try { localStorage.setItem(chatStorageKey, JSON.stringify(tradeChats)); } catch {}
+  document.getElementById('tradeChatInput').value = '';
+  renderChat();
+});
+function rejectTrade(id) {
+  if (!rejectedTrades.includes(id)) rejectedTrades.push(id);
+  try { localStorage.setItem(rejectedStorageKey, JSON.stringify(rejectedTrades)); } catch {}
+  renderTrades();
+  if (activeTradeId === id) tradeChatDialog.close();
+}
+document.getElementById('rejectTradeButton').addEventListener('click', () => {
+  if (activeTradeId) rejectTrade(activeTradeId);
+});
+document.querySelector('.trade-chat-close').addEventListener('click', () => tradeChatDialog.close());
+tradeChatDialog.addEventListener('click', event => {
+  if (event.target === tradeChatDialog) tradeChatDialog.close();
+});
 renderTrades();

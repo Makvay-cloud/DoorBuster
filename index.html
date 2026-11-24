@@ -202,13 +202,14 @@
         <form class="trade-form" id="tradeForm">
           <div class="eyebrow">НОВОЕ ПРЕДЛОЖЕНИЕ</div>
           <label>Твой Roblox-ник<input id="tradeUser" maxlength="24" required placeholder="Например, Player123"></label>
-          <label>Какой предмет предлагаешь?<input id="tradeGive" maxlength="60" required placeholder="Название предмета"></label>
-          <label>Что хочешь получить?<input id="tradeWant" maxlength="60" required placeholder="Название предмета"></label>
-          <label>Кому адресовано?
-            <select id="tradeTarget"><option value="all">Всем игрокам</option><option value="seller">Продавцу DoorBuster</option></select>
+          <label>Какой предмет предлагаешь?
+            <select id="tradeGive" required><option value="">Выбери предмет</option></select>
+          </label>
+          <label>Что хочешь получить?
+            <select id="tradeWant" required><option value="">Выбери предмет</option></select>
           </label>
           <button class="main-button" type="submit">ОПУБЛИКОВАТЬ <b>＋</b></button>
-          <p class="form-hint">Демо-режим: предложения пока сохраняются только в этом браузере.</p>
+          <p class="form-hint">Выбирай предметы из каталога. Игроки смогут открыть трейд и написать тебе.</p>
         </form>
         <div class="trade-board">
           <div class="trade-board-head"><div><div class="eyebrow">АКТИВНЫЕ ПРЕДЛОЖЕНИЯ</div><h3>НАЙДИ СВОЙ ОБМЕН</h3></div>
@@ -240,6 +241,21 @@
     <p>Перед любым заказом уточни возможность помощи, условия и цену.</p>
     <p class="safe-note">Не отправляй никому пароль, коды подтверждения и доступ к своему Roblox-аккаунту.</p>
     <button class="main-button dialog-ok">ПОНЯТНО</button>
+  </dialog>
+  <dialog id="tradeChatDialog" class="details-dialog trade-chat-dialog">
+    <button class="close-dialog trade-chat-close" aria-label="Закрыть">×</button>
+    <div class="eyebrow">ОБСУЖДЕНИЕ ТРЕЙДА</div>
+    <h2 id="tradeChatTitle">Трейд</h2>
+    <div id="tradeChatMessages" class="trade-chat-messages"></div>
+    <form id="tradeChatForm" class="trade-chat-form">
+      <input id="tradeChatName" maxlength="24" required placeholder="Твой Roblox-ник">
+      <div class="trade-chat-compose">
+        <input id="tradeChatInput" maxlength="300" required placeholder="Написать сообщение...">
+        <button class="trade-contact" type="submit">ОТПРАВИТЬ</button>
+      </div>
+    </form>
+    <button id="rejectTradeButton" class="trade-reject" type="button">ОТКЛОНИТЬ ЭТО ПРЕДЛОЖЕНИЕ</button>
+    <p class="form-hint">Демо-режим: чат и отклонение сохраняются только в этом браузере.</p>
   </dialog>
   <script src="script.js"></script>
 </body></html>
