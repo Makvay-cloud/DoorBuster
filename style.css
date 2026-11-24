@@ -83,3 +83,39 @@
 .trade-chat-compose .trade-contact{white-space:nowrap}
 .trade-chat-dialog>.trade-reject{margin-top:12px;width:100%}
 @media(max-width:600px){.trade-exchange{gap:8px}.trade-item-block{grid-template-columns:48px minmax(65px,1fr)}.trade-item-visual{width:48px;height:48px}.trade-actions{grid-template-columns:1fr 1fr}.trade-chat-compose{flex-direction:column}}
+
+
+/* Official DoorBuster mark */
+.brand-logo{display:flex;align-items:center;width:190px;height:62px;overflow:hidden;gap:0}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.footer-logo{width:145px;height:64px}
+.brand-logo .brand-icon{display:none}
+
+/* Trade item / achievement selector */
+.trade-form{gap:16px}
+.trade-picker{display:grid;gap:9px}
+.trade-picker-heading{font-size:10px;letter-spacing:1.3px;font-weight:800;color:#e7dfe1}
+.trade-picker-tabs{display:flex;gap:6px}
+.picker-tab{flex:1;background:#111115;border:1px solid #302b31;color:#9f98a1;padding:10px 8px;font:800 9px Manrope;letter-spacing:.8px;cursor:pointer}
+.picker-tab.active{background:#78141d;border-color:#bd2935;color:#fff}
+.trade-picker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;max-height:270px;overflow:auto;padding:2px}
+.trade-pick-tile{min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:7px 5px;background:#101014;border:1px solid #302b31;color:#eee;cursor:pointer;transition:.15s}
+.trade-pick-tile:hover{border-color:#a52a35;background:#1c1115}
+.trade-pick-tile.selected{border-color:#ed4652;background:#301116;box-shadow:inset 0 0 0 1px #ed4652}
+.trade-pick-picture{width:100%;height:64px;display:grid;place-items:center;overflow:hidden;background:#1a1114;border:1px solid #3a252b}
+.trade-pick-picture.item-picture{font-size:30px;background:radial-gradient(circle,#3b151c,#110d10)}
+.trade-pick-name{width:100%;font-size:9px;line-height:1.25;text-align:center;overflow-wrap:anywhere;color:#eee}
+.picker-achievement-image{width:100%;height:100%;min-height:0}
+.picker-achievement-image .badge-image img,.picker-achievement-image img{width:100%;height:100%;object-fit:contain}
+.picker-achievement-image:after{display:none}
+.trade-accept{background:#8f202b;border:1px solid #c43a45;color:#fff;padding:10px 12px;font:800 9px Manrope;letter-spacing:.6px;cursor:pointer}
+.trade-accept:hover{background:#b62b37}
+.trade-chat-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.trade-chat-actions .trade-reject{margin:0}
+.trade-chat-dialog>.form-hint{margin-top:12px}
+@media(max-width:650px){
+  .brand-logo{width:145px;height:52px}
+  .trade-picker-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-height:235px}
+  .trade-actions{grid-template-columns:1fr 1fr}
+  .trade-actions .trade-reject{grid-column:1/-1}
+}

@@ -5,3 +5,5 @@ DoorBuster — обновлённый сайт-магазин.
 Карточки и цены демонстрационные. Перед публикацией замените их на проверенные предложения и реальные ссылки.
 Не собирайте пароли или коды Roblox. Проверьте правила Roblox и площадки; несовершеннолетнему нужна помощь родителя/опекуна с публикацией и оплатой.
 Google Search Console: после публикации добавьте URL сайта и запросите индексацию. Появление в выдаче не гарантируется и занимает время.
+
+Trades update: visual item/achievement pickers, accept/reject buttons and per-trade chat are included. Current demo stores trades and messages in localStorage in the same browser only. For real communication between different visitors/devices, connect a shared backend/database and realtime chat service.

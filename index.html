@@ -12,9 +12,7 @@
 <body>
   <div class="grain"></div>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="DoorBuster — главная">
-      <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 7h16c9 0 14 6 14 17S30 41 21 41H5V7Zm9 8v18h7c4 0 6-3 6-9s-2-9-6-9h-7Z" fill="currentColor"/><path d="M27 7h16v8H35v5h7v8h-7v5h8v8H27V7Z" fill="#e33b46"/><path d="M25 7v34" stroke="#080808" stroke-width="2"/></svg></span>
-      <span>DOOR<span class="red">BUSTER</span><small>DOORS FAN PROJECT</small></span></a>
+    <a class="brand brand-logo" href="#" aria-label="DoorBuster — главная"><img src="assets/doorbuster-logo.webp" alt="DoorBuster"></a>
     <nav>
       <a href="#shop" data-main-nav="achievements">Ачивки</a>
       <a href="#trades" data-main-nav="trades">Трейды</a>
@@ -202,12 +200,24 @@
         <form class="trade-form" id="tradeForm">
           <div class="eyebrow">НОВОЕ ПРЕДЛОЖЕНИЕ</div>
           <label>Твой Roblox-ник<input id="tradeUser" maxlength="24" required placeholder="Например, Player123"></label>
-          <label>Какой предмет предлагаешь?
-            <select id="tradeGive" required><option value="">Выбери предмет</option></select>
-          </label>
-          <label>Что хочешь получить?
-            <select id="tradeWant" required><option value="">Выбери предмет</option></select>
-          </label>
+          <div class="trade-picker" data-picker="give">
+            <div class="trade-picker-heading">ЧТО ТЫ ПРЕДЛАГАЕШЬ?</div>
+            <div class="trade-picker-tabs" role="tablist" aria-label="Тип предлагаемого">
+              <button type="button" class="picker-tab active" data-kind="items">ПРЕДМЕТЫ</button>
+              <button type="button" class="picker-tab" data-kind="achievements">АЧИВКИ</button>
+            </div>
+            <div class="trade-picker-grid" id="givePickerGrid"></div>
+            <input type="hidden" id="tradeGive" required>
+          </div>
+          <div class="trade-picker" data-picker="want">
+            <div class="trade-picker-heading">ЧТО ТЫ ХОЧЕШЬ ПОЛУЧИТЬ?</div>
+            <div class="trade-picker-tabs" role="tablist" aria-label="Тип желаемого">
+              <button type="button" class="picker-tab active" data-kind="items">ПРЕДМЕТЫ</button>
+              <button type="button" class="picker-tab" data-kind="achievements">АЧИВКИ</button>
+            </div>
+            <div class="trade-picker-grid" id="wantPickerGrid"></div>
+            <input type="hidden" id="tradeWant" required>
+          </div>
           <button class="main-button" type="submit">ОПУБЛИКОВАТЬ <b>＋</b></button>
           <p class="form-hint">Выбирай предметы из каталога. Игроки смогут открыть трейд и написать тебе.</p>
         </form>
@@ -232,7 +242,7 @@
     <section id="about" class="about-section"><div class="eyebrow">О ПРОЕКТЕ</div><h2>НЕОФИЦИАЛЬНЫЙ <span>ФАН-МАГАЗИН</span></h2><p>DoorBuster — независимый фан-проект. Не связан с Roblox или создателями DOORS. Все названия достижений принадлежат их правообладателям.</p></section>
   </main>
 
-  <footer><a class="brand" href="#"><span class="brand-icon">DB</span> DOORBUSTER</a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
+  <footer><a class="brand brand-logo footer-logo" href="#" aria-label="DoorBuster"><img src="assets/doorbuster-logo.webp" alt="DoorBuster"></a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
 
   <dialog id="detailsDialog" class="details-dialog">
     <button class="close-dialog" aria-label="Закрыть">×</button>
@@ -254,7 +264,10 @@
         <button class="trade-contact" type="submit">ОТПРАВИТЬ</button>
       </div>
     </form>
-    <button id="rejectTradeButton" class="trade-reject" type="button">ОТКЛОНИТЬ ЭТО ПРЕДЛОЖЕНИЕ</button>
+    <div class="trade-chat-actions">
+      <button id="acceptTradeButton" class="trade-accept" type="button">ПРИНЯТЬ ТРЕЙД</button>
+      <button id="rejectTradeButton" class="trade-reject" type="button">ОТКЛОНИТЬ ТРЕЙД</button>
+    </div>
     <p class="form-hint">Демо-режим: чат и отклонение сохраняются только в этом браузере.</p>
   </dialog>
   <script src="script.js"></script>
