@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DoorBuster — магазин помощи с достижениями Roblox DOORS. Найди нужную ачивку и изучи условия.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050506">
+  <title>DoorBuster — магазин достижений DOORS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="DoorBuster — главная">
+      <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 7h16c9 0 14 6 14 17S30 41 21 41H5V7Zm9 8v18h7c4 0 6-3 6-9s-2-9-6-9h-7Z" fill="currentColor"/><path d="M27 7h16v8H35v5h7v8h-7v5h8v8H27V7Z" fill="#e33b46"/><path d="M25 7v34" stroke="#080808" stroke-width="2"/></svg></span>
+      <span>DOOR<span class="red">BUSTER</span><small>DOORS FAN PROJECT</small></span></a>
+    <nav>
+      <a href="#shop" data-main-nav="achievements">Ачивки</a>
+      <a href="#trades" data-main-nav="trades">Трейды</a>
+      <a href="#about">О проекте</a>
+    </nav>
+    <a class="header-cta" href="#shop">КАТАЛОГ <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="status"><i></i> МАГАЗИН ДОСТИЖЕНИЙ DOORS</div>
+        <h1>ТВОЯ СЛЕДУЮЩАЯ<br><span>АЧИВКА</span> ЖДЁТ.</h1>
+        <p>Выбирай испытание, изучай условия и находи помощь для прохождения DOORS.</p>
+        <a class="main-button" href="#shop">ОТКРЫТЬ КАТАЛОГ <b>↓</b></a>
+        <a class="hero-secondary" href="#trades">СМОТРЕТЬ ТРЕЙДЫ <span>↗</span></a>
+      </div>
+      <div class="hero-door" aria-hidden="true">
+        <div class="door-frame"><div class="door-panel"><span class="door-eye">?</span><span class="door-label">DOOR 000</span><i class="knob"></i></div></div>
+        <div class="floor-light"></div>
+      </div>
+      <div class="hero-caption"><span>НЕ ОГЛЯДЫВАЙСЯ.</span><span>EST. 2026&nbsp; / &nbsp;01</span></div>
+    </section>
+
+    <section id="shop" class="shop-section">
+      <div class="main-tabs" role="tablist" aria-label="Разделы DoorBuster">
+        <button class="main-tab active" id="achievementsTab" role="tab" aria-selected="true" data-view="achievements"><span>✦</span> АЧИВКИ</button>
+        <button class="main-tab" id="tradesTab" role="tab" aria-selected="false" data-view="trades"><span>⇄</span> ТРЕЙДЫ</button>
+      </div>
+      <div class="section-top">
+        <div><div class="eyebrow">АРХИВ ДОСТИЖЕНИЙ</div><h2>МАГАЗИН <span>АЧИВОК</span></h2></div>
+        <div class="catalog-count"><strong id="resultCount">29</strong><span>НАЙДЕНО</span></div>
+      </div>
+
+      <div class="shop-tools">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск ачивки..." autocomplete="off"><kbd>/</kbd></label>
+        <div class="tabs" role="tablist" aria-label="Категории достижений">
+          <button class="tab active" data-filter="all" role="tab" aria-selected="true">Все</button>
+          <button class="tab" data-filter="hotel" role="tab" aria-selected="false">Отель</button>
+          <button class="tab" data-filter="mines" role="tab" aria-selected="false">Шахты</button>
+          <button class="tab" data-filter="other" role="tab" aria-selected="false">Другие</button>
+        </div>
+      </div>
+
+      <div class="achievement-grid" id="achievementGrid">
+        <article class="achievement-card" data-category="hotel" data-search="hotel hell отель">
+          <div class="card-image badge-image" data-badge-id="2151004643" aria-label="Оригинальный значок Hotel Hell"><span class="badge-loading">Загрузка значка…</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ОЧЕНЬ СЛОЖНО</span></div><h3>Hotel Hell</h3><p>Пройти Отель с бонусом модификаторов не менее 150%.</p><div class="card-buy"><span class="price">75 Robux</span><button class="details-button" data-name="Hotel Hell">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="not five stars отель модификаторы">
+          <div class="card-image badge-image" data-badge-id="2151004633" aria-label="Оригинальный значок Not Five Stars"><span class="badge-loading">Загрузка значка…</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Not Five Stars</h3><p>Выйти из Отеля с бонусом модификаторов не менее 50%.</p><div class="card-buy"><span class="price">35 Robux</span><button class="details-button" data-name="Not Five Stars">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="welcome отель">
+          <div class="card-image badge-image" data-badge-id="2127715318" aria-label="Оригинальный значок Welcome"><span class="badge-loading">Загрузка значка…</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ЛЁГКАЯ</span></div><h3>Welcome</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">5 Robux</span><button class="details-button" data-name="Welcome">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="one of many отель">
+          <div class="card-image run-art"><span class="card-code">H-03</span><span class="art-title">ONE<br>OF<br>MANY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ЛЁГКАЯ</span></div><h3>One Of Many</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">5 Robux</span><button class="details-button" data-name="One Of Many">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="welcome back отель">
+          <div class="card-image welcome-art"><span class="card-code">H-04</span><span class="art-title">WELCOME<br>BACK</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ЛЁГКАЯ</span></div><h3>Welcome Back</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">5 Robux</span><button class="details-button" data-name="Welcome Back">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="out of my way отель">
+          <div class="card-image run-art"><span class="card-code">H-05</span><span class="art-title">OUT<br>OF<br>MY<br>WAY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Out Of My Way</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Out Of My Way">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="look at me отель">
+          <div class="card-image mines-art"><span class="card-code">H-06</span><span class="art-title">LOOK<br>AT<br>ME</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Look At Me</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Look At Me">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="buddy system отель">
+          <div class="card-image welcome-art"><span class="card-code">H-07</span><span class="art-title">BUDDY<br>SYSTEM</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ЧУТЬ СЛОЖНЕЕ СРЕДНЕГО</span></div><h3>Buddy System</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="Buddy System">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="i see you отель">
+          <div class="card-image mines-art"><span class="card-code">H-08</span><span class="art-title">I<br>SEE<br>YOU</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>I See You</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="I See You">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="eviction notice отель">
+          <div class="card-image hotel-art"><span class="card-code">H-09</span><span class="art-title">EVICTION<br>NOTICE</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Eviction Notice</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="Eviction Notice">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="wrong room отель">
+          <div class="card-image mystery-art"><span class="card-code">H-10</span><span class="art-title">WRONG<br>ROOM</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Wrong Room</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Wrong Room">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="in plain sight отель">
+          <div class="card-image mystery-art"><span class="card-code">H-11</span><span class="art-title">IN<br>PLAIN<br>SIGHT</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>In Plain Sight</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="In Plain Sight">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="you can run отель">
+          <div class="card-image badge-image" data-badge-id="2127965951" aria-label="Оригинальный значок You Can Run"><span class="badge-loading">Загрузка значка…</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>You Can Run</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="You Can Run">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="ten of many отель">
+          <div class="card-image welcome-art"><span class="card-code">H-13</span><span class="art-title">TEN<br>OF<br>MANY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Ten Of Many</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Ten Of Many">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="hundred of many отель">
+          <div class="card-image welcome-art"><span class="card-code">H-14</span><span class="art-title">HUNDRED<br>OF<br>MANY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Hundred Of Many</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">35 Robux</span><button class="details-button" data-name="Hundred Of Many">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="meet jack отель">
+          <div class="card-image hotel-art"><span class="card-code">H-15</span><span class="art-title">MEET<br>JACK</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Meet Jack</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Meet Jack">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="meet timothy отель">
+          <div class="card-image mystery-art"><span class="card-code">H-16</span><span class="art-title">MEET<br>TIMOTHY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">ЛЁГКАЯ</span></div><h3>Meet Timothy</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">10 Robux</span><button class="details-button" data-name="Meet Timothy">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="not funny отель">
+          <div class="card-image run-art"><span class="card-code">H-17</span><span class="art-title">NOT<br>FUNNY</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Not Funny</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Not Funny">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="rock bottom отель">
+          <div class="card-image hotel-art"><span class="card-code">H-18</span><span class="art-title">ROCK<br>BOTTOM</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Rock Bottom</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">30 Robux</span><button class="details-button" data-name="Rock Bottom">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="hotel adventurer отель">
+          <div class="card-image hotel-art"><span class="card-code">H-19</span><span class="art-title">HOTEL<br>ADVENTURER</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Hotel Adventurer</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="Hotel Adventurer">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="hotel" data-search="herb of viridis отель">
+          <div class="card-image welcome-art"><span class="card-code">H-20</span><span class="art-title">HERB<br>OF<br>VIRIDIS</span><span class="art-bottom">THE HOTEL</span></div>
+          <div class="card-content"><div class="card-meta"><span>ОТЕЛЬ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Herb Of Viridis</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">35 Robux</span><button class="details-button" data-name="Herb Of Viridis">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="expert technician шахты">
+          <div class="card-image mines-art"><span class="card-code">M-21</span><span class="art-title">EXPERT<br>TECHNICIAN</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Expert Technician</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">40 Robux</span><button class="details-button" data-name="Expert Technician">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="evil be gone шахты">
+          <div class="card-image mines-art"><span class="card-code">M-22</span><span class="art-title">EVIL<br>BE<br>GONE</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Evil Be Gone</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="Evil Be Gone">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="all figured out шахты">
+          <div class="card-image mines-art"><span class="card-code">M-23</span><span class="art-title">ALL<br>FIGURED<br>OUT</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>All Figured Out</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">40 Robux</span><button class="details-button" data-name="All Figured Out">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="take a breather шахты">
+          <div class="card-image mines-art"><span class="card-code">M-24</span><span class="art-title">TAKE<br>A<br>BREATHER</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Take A Breather</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Take A Breather">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="other" data-search="scammed другое">
+          <div class="card-image mystery-art"><span class="card-code">X-25</span><span class="art-title">SCAMMED</span><span class="art-bottom">OTHER</span></div>
+          <div class="card-content"><div class="card-meta"><span>ДРУГОЕ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Scammed</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">15 Robux</span><button class="details-button" data-name="Scammed">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="other" data-search="void buster другое">
+          <div class="card-image mystery-art"><span class="card-code">X-26</span><span class="art-title">VOID<br>BUSTER</span><span class="art-bottom">OTHER</span></div>
+          <div class="card-content"><div class="card-meta"><span>ДРУГОЕ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Void Buster</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">30 Robux</span><button class="details-button" data-name="Void Buster">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="red mist шахты">
+          <div class="card-image mines-art"><span class="card-code">M-27</span><span class="art-title">RED<br>MIST</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Red Mist</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">35 Robux</span><button class="details-button" data-name="Red Mist">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="rocky road шахты">
+          <div class="card-image mines-art"><span class="card-code">M-28</span><span class="art-title">ROCKY<br>ROAD</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СЛОЖНАЯ</span></div><h3>Rocky Road</h3><p>Пройти Шахты с бонусом модификаторов не менее 50%.</p><div class="card-buy"><span class="price">45 Robux</span><button class="details-button" data-name="Rocky Road">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+
+        <article class="achievement-card" data-category="mines" data-search="a hard place шахты модификаторы">
+          <div class="card-image mines-art"><span class="card-code">M-30</span><span class="art-title">A HARD<br>PLACE</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">ПОЧТИ НЕВОЗМОЖНО</span></div><h3>A Hard Place</h3><p>Пройти Шахты с бонусом модификаторов не менее 150%.</p><div class="card-buy"><span class="price">95 Robux</span><button class="details-button" data-name="A Hard Place">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+        <article class="achievement-card" data-category="mines" data-search="time out шахты">
+          <div class="card-image mines-art"><span class="card-code">M-29</span><span class="art-title">TIME<br>OUT</span><span class="art-bottom">THE MINES</span></div>
+          <div class="card-content"><div class="card-meta"><span>ШАХТЫ</span><span class="difficulty medium">СРЕДНЯЯ</span></div><h3>Time Out</h3><p>Информация об условиях и доступности помощи уточняется.</p><div class="card-buy"><span class="price">20 Robux</span><button class="details-button" data-name="Time Out">ПОДРОБНЕЕ <b>↗</b></button></div></div>
+        </article>
+      </div>
+      <div id="emptyState" class="empty-state" hidden>НИЧЕГО НЕ НАЙДЕНО. ПОПРОБУЙ ДРУГОЙ ЗАПРОС.</div>
+      <p class="catalog-note">Каталог достижений. Условия, сложность, цены и доступность помощи уточняются перед заказом.</p>
+    </section>
+
+
+
+    <section id="trades" class="trades-section" hidden>
+      <div class="section-top">
+        <div><div class="eyebrow">ОБМЕНЫ СООБЩЕСТВА</div><h2>ДОСКА <span>ТРЕЙДОВ</span></h2></div>
+        <div class="catalog-count"><strong id="tradeCount">00</strong><span>ПРЕДЛОЖЕНИЙ</span></div>
+      </div>
+      <p class="trade-intro">Публикуй предмет, который предлагаешь, и укажи, что хочешь получить. Договоритесь о встрече и передайте предметы непосредственно в DOORS.</p>
+      <div class="trade-layout">
+        <form class="trade-form" id="tradeForm">
+          <div class="eyebrow">НОВОЕ ПРЕДЛОЖЕНИЕ</div>
+          <label>Твой Roblox-ник<input id="tradeUser" maxlength="24" required placeholder="Например, Player123"></label>
+          <label>Какой предмет предлагаешь?<input id="tradeGive" maxlength="60" required placeholder="Название предмета"></label>
+          <label>Что хочешь получить?<input id="tradeWant" maxlength="60" required placeholder="Название предмета"></label>
+          <label>Кому адресовано?
+            <select id="tradeTarget"><option value="all">Всем игрокам</option><option value="seller">Продавцу DoorBuster</option></select>
+          </label>
+          <button class="main-button" type="submit">ОПУБЛИКОВАТЬ <b>＋</b></button>
+          <p class="form-hint">Демо-режим: предложения пока сохраняются только в этом браузере.</p>
+        </form>
+        <div class="trade-board">
+          <div class="trade-board-head"><div><div class="eyebrow">АКТИВНЫЕ ПРЕДЛОЖЕНИЯ</div><h3>НАЙДИ СВОЙ ОБМЕН</h3></div>
+          <label class="trade-search"><span>⌕</span><input id="tradeSearch" placeholder="Поиск трейда..."></label></div>
+          <div id="tradeList" class="trade-list"></div>
+          <div id="tradeEmpty" class="empty-state">ПОКА НЕТ ПРЕДЛОЖЕНИЙ. СОЗДАЙ ПЕРВОЕ!</div>
+        </div>
+      </div>
+      <div class="trade-warning"><b>ВАЖНО</b><span>DoorBuster только помогает находить партнёров. Обмен предметами проходит внутри DOORS. Не передавай пароль, коды подтверждения или доступ к аккаунту. Проверяй предмет и условия до обмена.</span></div>
+    </section>
+\n    <section id="how" class="how-section">
+      <div class="eyebrow">ПОРЯДОК РАБОТЫ</div><h2>КАК ЭТО <span>РАБОТАЕТ</span></h2>
+      <div class="steps">
+        <div><b>01</b><h3>Найди ачивку</h3><p>Используй категории или поиск по названию.</p></div>
+        <div><b>02</b><h3>Уточни заказ</h3><p>Сначала согласуй условия, цену и время помощи.</p></div>
+        <div><b>03</b><h3>Пройди вместе</h3><p>Не передавай пароль, коды подтверждения или доступ к аккаунту.</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section"><div class="eyebrow">О ПРОЕКТЕ</div><h2>НЕОФИЦИАЛЬНЫЙ <span>ФАН-МАГАЗИН</span></h2><p>DoorBuster — независимый фан-проект. Не связан с Roblox или создателями DOORS. Все названия достижений принадлежат их правообладателям.</p></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-icon">DB</span> DOORBUSTER</a><span>FAN PROJECT • NOT OFFICIAL</span><span>© 2026</span></footer>
+
+  <dialog id="detailsDialog" class="details-dialog">
+    <button class="close-dialog" aria-label="Закрыть">×</button>
+    <div class="eyebrow">ИНФОРМАЦИЯ ОБ УСЛУГЕ</div>
+    <h2 id="dialogTitle">Название ачивки</h2>
+    <p>Перед любым заказом уточни возможность помощи, условия и цену.</p>
+    <p class="safe-note">Не отправляй никому пароль, коды подтверждения и доступ к своему Roblox-аккаунту.</p>
+    <button class="main-button dialog-ok">ПОНЯТНО</button>
+  </dialog>
+  <script src="script.js"></script>
+</body></html>
